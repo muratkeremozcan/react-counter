@@ -17,6 +17,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cy:open": "cypress open",
+    "cy:open-ct": "cypress open-ct",
+    "cy:run-ct": "cypress run-ct",
     "dev": "start-test 3000 cy:open",
     "serve": "serve -s build",
     "prod": "start-test serve 3000 cy:open"
@@ -25,7 +27,12 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "no-unused-expressions": "off",
+      "no-undef": "off",
+      "jest/valid-describe": "off"
+    }
   },
   "browserslist": {
     "production": [
@@ -40,7 +47,10 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^9.3.1",
+    "@cypress/react": "^5.12.1",
+    "@cypress/webpack-dev-server": "^1.8.0",
+    "cy-spok": "^1.5.2",
+    "cypress": "9.4.1",
     "cypress-react-selector": "^2.3.15",
     "prettier": "^2.5.1",
     "serve": "^13.0.2",

@@ -1,9 +1,16 @@
 {
   "fixturesFolder": false,
-  "supportFile": false,
-  "pluginsFile": false,
   "baseUrl": "http://localhost:3000",
   "viewportWidth": 300,
   "viewportHeight": 300,
-  "ignoreTestFiles": "utils.js"
+  "ignoreTestFiles": "utils.js",
+  "component": {
+    "testFiles": "**/*.cy.{js,ts,jsx,tsx}",
+    "componentFolder": "src"
+  },
+  "retries": {
+    "runMode": 2,
+    "openMode": 0
+  },
+  "experimentalPolyfill": true
 }
