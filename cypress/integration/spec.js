@@ -8,7 +8,7 @@ it('works', () => {
   cy.waitForReact(1000, '#root')
   // cy.react('Example').should('be.visible').contains('[data-cy=count]', '0')
   cy.getReact('Example').getCurrentState().should('have.property', 'count', 0)
-  cy.get('[data-cy=add]').click().click()
+  cy.getByCy('add').click().click()
   cy.getReact('Example').getCurrentState().should('have.property', 'count', 2)
   cy.getReact('Example').getProps().should('have.property', 'initialCount', 0)
 })
@@ -31,7 +31,7 @@ it('sets state', () => {
 it('calls the components method', () => {
   cy.visit('/')
   cy.waitForReact(1000, '#root')
-  cy.get('[data-cy=add]').click().click().click()
+  cy.getByCy('add').click().click().click()
   cy.getReact('Example').then((e) => {
     console.log(e)
     const fiber = getReactFiber(e[0].node)

@@ -1,26 +1,9 @@
 /// <reference types="cypress" />
 
-import { getReactFiber, getComponent } from './utils'
-
-Cypress.Commands.add('getComponent', { prevSubject: 'element' }, ($el) => {
-  const fiber = getReactFiber($el[0])
-  if (!fiber) {
-    throw new Error('Could not find React Fiber')
-  }
-  const component = getComponent(fiber)
-  if (!component) {
-    throw new Error('Could not find React Component')
-  }
-  if (!component.stateNode) {
-    throw new Error('Could not find React Component stateNode')
-  }
-  return component.stateNode
-})
-
 it('checks and modifies state', () => {
   cy.visit('/')
   cy.contains('[data-cy=count]', '0')
-  cy.get('[data-cy=add]').click().click()
+  cy.getByCy('add').click().click()
   cy.contains('[data-cy=count]', '2')
   cy.get('.Example')
     .as('example')
