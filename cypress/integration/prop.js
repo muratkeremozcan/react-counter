@@ -1,6 +1,7 @@
 /// <reference types="cypress" />
 
 import 'cypress-react-selector'
+import spok from 'cy-spok'
 
 // The plugin cypress-react-selector provides two high-level commands for finding components.
 // If you need to find the DOM element by React component prop or state, use the cy.react command.
@@ -16,5 +17,13 @@ it('uses prop to find the component', () => {
     .click()
     .click()
 
-  cy.getReact('Example').its(0).its('props.initialCount').should('eq', 0)
+  cy.getReact('Example')
+    .its(0)
+    .should(
+      spok({
+        props: {
+          initialCount: 0,
+        },
+      }),
+    )
 })

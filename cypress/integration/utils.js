@@ -1,3 +1,6 @@
+// these are similar to accessing components with app actions
+// https://cypress.slides.com/cypress-io/siemens-case-study#/12/2/0
+
 // https://stackoverflow.com/questions/29321742/react-getting-a-component-from-a-dom-element-for-debugging/39165137#39165137
 export const getReactFiber = (el) => {
   const key = Object.keys(el).find((key) => {

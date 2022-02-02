@@ -12,9 +12,14 @@ it('checks the state', () => {
   cy.waitForReact(1000, '#root')
 
   // equivalent
-  cy.getReact('Example').getCurrentState().should('have.property', 'count', 3)
-  cy.getReact('Example').getCurrentState().should('deep.include', {
-    count: 3,
-  })
-  cy.getReact('Example', { state: { count: 3 } })
+
+  // function component
+  cy.getReact('Example').getCurrentState().should('eq', 3)
+
+  // class component
+  // cy.getReact('Example').getCurrentState().should('have.property', 'count', 3)
+  // cy.getReact('Example').getCurrentState().should('deep.include', {
+  //   count: 3,
+  // })
+  // cy.getReact('Example', { state: { count: 3 } })
 })

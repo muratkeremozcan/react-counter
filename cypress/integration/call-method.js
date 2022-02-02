@@ -2,7 +2,8 @@
 
 import { getReactFiber, getComponent } from './utils'
 
-it('calls Example double()', () => {
+// the unknown is something like stateNode in function components
+it.skip('calls Example double()', () => {
   cy.visit('/')
   cy.contains('[data-cy=count]', '0')
   cy.getByCy('add').click().click()

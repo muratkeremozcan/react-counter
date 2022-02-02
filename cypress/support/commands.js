@@ -55,6 +55,7 @@ export const getComponent = (fiber) => {
   return parentFiber
 }
 
+// need to make it work for function components, no stateNode in those
 Cypress.Commands.add('getComponent', { prevSubject: 'element' }, ($el) => {
   const fiber = getReactFiber($el[0])
   if (!fiber) {
